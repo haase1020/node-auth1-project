@@ -10,8 +10,8 @@ const restricted = require("../auth/restricted-middleware.js");
 const server = express();
 
 const sessionConfig = {
-  name: "monster",
-  secret: "keep it secret, keep it safe!",
+  name: "timothy",
+  secret: "I like white chocoloate!",
   cookie: {
     maxAge: 1000 * 60 * 60,
     secure: false, // true in production to send only over https
@@ -24,6 +24,7 @@ const sessionConfig = {
 server.use(helmet());
 server.use(express.json());
 server.use(cors());
+server.use(express.json());
 server.use(session(sessionConfig));
 
 server.use("/api/users", restricted, usersRouter);
